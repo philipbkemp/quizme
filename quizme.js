@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 function updatePoints() {
 	$("#pts").html( quiz_score + " point" + (quiz_score !== 1 ? "s" : "") );
-	window.localStorage.quizme = JSON.stringify({ token: quiz_token, score: quiz_score });
+	save();
 }
 
 function reset() {
@@ -52,30 +52,32 @@ function getQuizToken() {
 	if ( window.localStorage.quizme ) {
 		quiz_token = JSON.parse(window.localStorage.quizme).token;
 		quiz_score = JSON.parse(window.localStorage.quizme).score;
-		updatePoints();
-		getQuestion();
-	} else {
-		$.ajax({
-			url:"https://opentdb.com/api_token.php?command=request",
-			success:function(data){
-				if ( data.response_code === 0 ) {
-					quiz_token = data.token;
-					quiz_score = 0;
-					window.localStorage.quizme = JSON.stringify({ token: quiz_token, score: quiz_score });
-					getQuestion();
-				} else {
-					error();
-				}
-			}
-		});
+		if ( quiz_token ) {
+			updatePoints();
+			getQuestion();
+			return;
+		}
 	}
+	$.ajax({
+		url:"https://opentdb.com/api_token.php?command=request",
+		success:function(data){
+			if ( data.response_code === 0 ) {
+				quiz_token = data.token;
+				quiz_score = 0;
+				save();
+				setTimeout(getQuestion,5000);
+			} else {
+				error(data.response_code);
+			}
+		}
+	});
 	
 }
 
 function getQuestion() {
 
 	$.ajax({
-		url:"https://opentdb.com/api.php?amount=1",
+		url:"https://opentdb.com/api.php?amount=1&token="+quiz_token,
 		success:function(data){
 			if ( data.response_code === 0 ) {
 				question = data.results[0];
@@ -113,16 +115,25 @@ function getQuestion() {
 					}
 
 				} else {
-					error();
+					error(data.response_code);
 				}
 			} else {
-				error();
+				error(data.response_code);
 			}
 		}
 	});
 }
 
-function error() {
+function error(code) {
+
+	if ( code === 3 ) {
+		// token not found
+		quiz_token = null;
+		quiz_score = 0;
+		save();
+		getQuizToken();
+	}
+
 	$(".placeholder-glow").removeClass("placeholder-glow");
 	
 	$("#question_placeholder").show();
@@ -138,4 +149,8 @@ function error() {
 
 	alert("Dang, something went wrong. Sorry...");
 	
+}
+
+function save() {
+	window.localStorage.quizme = JSON.stringify({ token: quiz_token, score: quiz_score });
 }
