@@ -132,6 +132,8 @@ function error(code) {
 		quiz_score = 0;
 		save();
 		getQuizToken();
+	} else if ( code === 5 ) {
+		setTimeout(getQuizToken,5000);
 	}
 
 	$(".placeholder-glow").removeClass("placeholder-glow");

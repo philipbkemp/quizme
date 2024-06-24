@@ -1,0 +1,80 @@
+* {
+	font-family: Fira Sans, sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #2B5873;
+	font-family: Ubuntu, sans-serif
+}
+
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 *,
+strong {
+	font-family: Ununtu, sans-serif
+}
+
+body {
+	border-top: 5px solid #2B5873;
+}
+
+hr {
+	border-color: #2B5873;
+}
+
+.btn {
+	min-height: 50px;
+}
+
+.btn.btn-outline-primary {
+	border-color: #2B5873;
+	color: #2B5873;
+}
+
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:active,
+.btn.btn-outline-primary:focus {
+	color: white;
+	background-color: #2B2875;
+	border-color: #2B5873;
+}
+
+.bg-success {
+	background-color: rgba(43,115,35,var(--bs-bg-opacity)) !important;
+}
+.bg-danger {
+	background-color: rgba(115,35,43,var(--bs-bg-opacity)) !important;
+}
+
+.text-size-1-25 {
+	font-size: 1.25rem;
+}
+
+.phil-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	border-top: 5px solid #2B5873;
+	background: white;
+	min-height: 50px;
+	display: flex;
+	align-items: center;
+}
+
+.mb-6 {
+	margin-bottom: 5rem !important;
+}
+
+a {
+	color: #2B5873;
+}
+
+/*****************************/
