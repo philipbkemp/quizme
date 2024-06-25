@@ -137,8 +137,10 @@ function error(code) {
 		quiz_score = 0;
 		save();
 		getQuizToken();
+		return;
 	} else if ( code === 5 ) {
 		setTimeout(getQuizToken,5000);
+		return;
 	}
 
 	$(".placeholder-glow").removeClass("placeholder-glow");
