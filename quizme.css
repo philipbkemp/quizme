@@ -1,0 +1,6 @@
+span.badge.bg-category {
+    border: 1px solid #C46210;
+    color: #C46210;
+    font-weight: normal;
+    text-transform: capitalize;
+}

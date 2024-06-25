@@ -98,6 +98,11 @@ function getQuestion() {
 					$("#question_placeholder").hide();
 					$("#question").show().html( theQuestion );
 
+					difficulty = $("<SPAN></SPAN>").addClass("badge").addClass("bg-category").html( question.category.split(":").pop() + ": " + question.difficulty );
+					categories = $("<DIV></DIV>").addClass("categories").addClass("mb-2");
+					categories.append(difficulty);
+					$("#question").prepend( categories );
+
 					$("#option_a_placeholder").hide();
 					$("#option_a").show().html( options[0] );
 					$("#option_b_placeholder").hide();
@@ -150,6 +155,7 @@ function error(code) {
 	$("option_d").hide();
 
 	alert("Dang, something went wrong. Sorry...");
+	console.log(code);
 	
 }
 
