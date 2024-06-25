@@ -1,3 +1,5 @@
+/* Showcase CSS v1.00 */
+
 * {
 	font-family: Fira Sans, sans-serif
 }
@@ -77,4 +79,9 @@ a {
 	color: #2B5873;
 }
 
-/*****************************/
+h1 .small {
+	font-size: 1rem;
+}
+h1 .badge.small {
+    margin-top: 15px;
+}
