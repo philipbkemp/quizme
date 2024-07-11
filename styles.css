@@ -1,4 +1,4 @@
-/* Showcase CSS v1.00 */
+/* Showcase CSS v1.0.2 */
 
 * {
 	font-family: Fira Sans, sans-serif
@@ -32,7 +32,7 @@ hr {
 	border-color: #2B5873;
 }
 
-.btn {
+.btn:not(.get-started) {
 	min-height: 50px;
 }
 
@@ -42,11 +42,34 @@ hr {
 }
 
 .btn.btn-outline-primary:hover,
-.btn.btn-outline-primary:active,
-.btn.btn-outline-primary:focus {
+.btn.btn-outline-primary:active {
 	color: white;
 	background-color: #2B2875;
 	border-color: #2B5873;
+}
+
+.btn.btn-primary {
+	background-color: #2B5873;
+	border-color: #2B5873;
+	color: white;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:active {
+	color: #2B5873;
+	background-color: #E9EEF1;
+}
+
+.btn.btn-danger {
+	color: white;
+	background: #73232B;
+	border-color: #73232B80;
+}
+
+.btn.btn-success {
+	color: white;
+	background: #2b7323;
+	border-color: #2b732380;
 }
 
 .bg-success {
@@ -81,7 +104,4 @@ a {
 
 h1 .small {
 	font-size: 1rem;
-}
-h1 .badge.small {
-    margin-top: 15px;
 }

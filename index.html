@@ -9,60 +9,24 @@
 		<link rel="stylesheet" href="styles.css" />
 		<link rel="stylesheet" href="quizme.css" />
 	</head>
-	<body>
-
-		<div class="toast-container p-3 top-0 start-50 translate-middle-x">
-			<div id="liveToastCorrect" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-				<div class="toast-header bg-success text-bg-success">
-					<strong class="me-auto text-size-1-25">Correct!</strong>
-				</div>
-				<div class="toast-body">
-					Have one yummy point!
-				</div>
-			</div>
-		</div>
-
-		<div class="toast-container p-3 top-0 start-50 translate-middle-x">
-			<div id="liveToastIncorrect" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-				<div class="toast-header bg-danger text-bg-danger">
-					<strong class="me-auto text-size-1-25">Nope!</strong>
-				</div>
-				<div class="toast-body">
-					No point for you... the answer was <strong id="right-answer"></strong>
-				</div>
-			</div>
-		</div>
+	<body class="splash">
 
 		<div class="container mb-6">
 			<div class="row mt-2">
 				<div class="col-12">
 					<h1>
 						QuizMe
-						<span class="badge bg-opacity-25 bg-success float-end small" id="pts">0 points</span>
 					</h1>
 					<hr />
+
+					<p>Welcome to an exciting trivia game, where your knowledge is put to the ultimate test! Leveraging the extensive database of the OpenTriviaDB API, the game offers a vast array of multiple-choice questions spanning a wide range of subjects. From history and science to pop culture and sports, there's something for everyone.</p><p>Each correct answer earns you points, and the more challenging the question, the greater the reward. With varying levels of difficulty, you can push your limits and sharpen your wits. Whether you're a trivia novice or a seasoned quiz master, our game promises endless fun and learning opportunities.</p><p>Dive in, challenge yourself, and see how high you can score. Compete with friends, climb the leaderboard, and become a trivia champion!</p>
+
 				</div>
-			</div>
-			<div class="row placeholder-glow">
-				<div class="col-12 mb-3">
-					<span class="placeholder col-12 placeholder-lg" id="question_placeholder"></span>
-					<p class="lead" id="question" style="display:none;"></p>
-				</div>
-				<div class="col-12 col-lg-3 mb-3">
-					<span class="placeholder col-12 placeholder-lg" id="option_a_placeholder"></span>
-					<button class="btn btn-outline-primary w-100 h-100" id="option_a" style="display:none;"></button>
-				</div>
-				<div class="col-12 col-lg-3 mb-3">
-					<span class="placeholder col-12 placeholder-lg" id="option_b_placeholder"></span>
-					<button class="btn btn-outline-primary w-100 h-100" id="option_b" style="display:none;"></button>
-				</div>
-				<div class="col-12 col-lg-3 mb-3">
-					<span class="placeholder col-12 placeholder-lg" id="option_c_placeholder"></span>
-					<button class="btn btn-outline-primary w-100 h-100" id="option_c" style="display:none;"></button>
-				</div>
-				<div class="col-12 col-lg-3 mb-3">
-					<span class="placeholder col-12 placeholder-lg" id="option_d_placeholder"></span>
-					<button class="btn btn-outline-primary w-100 h-100" id="option_d" style="display:none;"></button>
+
+				<div class="col-12 col-lg-4 offset-lg-4">
+
+					<a href="game.html" class="btn btn-primary get-started w-100">Get started</a>
+
 				</div>
 			</div>
 		</div>

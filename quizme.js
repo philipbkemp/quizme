@@ -1,8 +1,13 @@
 quiz_token = "";
 quiz_score = 0;
 theRightAnswer = "";
+questionNumber = 0;
 
 $(document).ready(function(){
+
+	if ( ! $("body").hasClass("game") ) {
+		return;
+	}
 
 	toastBootstrapCorrect = bootstrap.Toast.getOrCreateInstance( document.getElementById('liveToastCorrect') );
 	toastBootstrapIncorrect = bootstrap.Toast.getOrCreateInstance( document.getElementById('liveToastIncorrect') );
@@ -45,6 +50,8 @@ function reset() {
 	$("#option_c").hide().html("");
 	$("#option_d_placeholder").show();
 	$("#option_d").hide().html("");
+	$("#qNum_placeholder").show();
+	$("#qNum").hide();
 }
 
 function getQuizToken() {
@@ -78,13 +85,18 @@ function getQuestion() {
 
 	$.ajax({
 		url:"https://opentdb.com/api.php?amount=1&token="+quiz_token,
-		success:function(data){
+		success: function(data) {
 			if ( data.response_code === 0 ) {
 				question = data.results[0];
 				if ( question.type === "multiple" || question.type === "boolean" ) {
 
 					toastBootstrapCorrect.hide();
 					toastBootstrapIncorrect.hide();
+
+					$("#qNum_placeholder").hide();
+					$("#qNum").show();
+					questionNumber++;
+					$("#qNumber").html(questionNumber);
 
 					theQuestion = question.question;
 					theRightAnswer = question.correct_answer;
@@ -124,6 +136,13 @@ function getQuestion() {
 				}
 			} else {
 				error(data.response_code);
+			}
+		},
+		error: function(data) {
+			if ( data.responseJSON && data.responseJSON.response_code ) {
+				error(data.responseJSON.response_code);
+			} else {
+				alert("Something has gone very wrong. Please reload...");
 			}
 		}
 	});
