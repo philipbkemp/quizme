@@ -11,10 +11,21 @@ $(document).ready(function(){
 
 	toastBootstrapCorrect = bootstrap.Toast.getOrCreateInstance( document.getElementById('liveToastCorrect') );
 	toastBootstrapIncorrect = bootstrap.Toast.getOrCreateInstance( document.getElementById('liveToastIncorrect') );
+
+	const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+	const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+	document.addEventListener("shown.bs.popover",()=>{
+		$("#doRestart").on("click",function(){
+			quiz_token = "";
+			quiz_score = 0;
+			save();
+		});
+	});
 	
 	reset();
 
 	getQuizToken();
+
 
 	$("#option_a, #option_b, #option_c, #option_d").on("click",function(){
 		if ( theRightAnswer !== "" ) {

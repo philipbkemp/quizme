@@ -1,4 +1,4 @@
-/* Showcase CSS v1.0.2 */
+/* Showcase CSS v1.0.3 */
 
 * {
 	font-family: Fira Sans, sans-serif
@@ -98,6 +98,7 @@ hr {
 	margin-bottom: 5rem !important;
 }
 
+.btn.btn-link,
 a {
 	color: #2B5873;
 }

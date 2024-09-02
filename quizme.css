@@ -4,3 +4,17 @@ span.badge.bg-category {
     font-weight: normal;
     text-transform: capitalize;
 }
+
+.restart-popover {
+    border-color: #73232B;
+}
+.restart-popover .popover-header {
+    background-color: #73232B80;
+    color: black;
+}
+.restart-popover .popover-arrow:before {
+    border-top-color: #73232B !important;
+}
+.restart-popover .popover-body {
+    padding: 0.5rem !important;
+}
