@@ -5,6 +5,21 @@ questionNumber = 0;
 
 $(document).ready(function(){
 
+	$.ajax({
+		url: "https://www.philipbkemp.net/api/ping",
+		type: "post",
+		data: {
+			visitor: "github",
+			page: "Github Pages / QuizMe"
+		},
+		success: function(response) {
+			console.log("Thank you for your visit");
+		},
+		error: function(xhr,status,error) {
+			pingError = [xhr,status,error];
+		}
+	});
+
 	if ( ! $("body").hasClass("game") ) {
 		return;
 	}
