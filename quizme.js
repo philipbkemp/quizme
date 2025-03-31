@@ -14,6 +14,17 @@ wrongTexts = [
 	"Nope. %answer%.",
 	"%answer%!"
 ];
+rightTexts = [
+	"Bingo!",
+	"That's the one",
+	"One point, freshly squeezed",
+	"Nom nom nom - points for dinner!",
+	"Correct!",
+	"Who are you so wise in the ways of quizzing?",
+	"WTF! I mean: Well, that's fantastic!",
+	"Exactly what I would have said. Honest",
+	"Well done, jolly good, spiffing, and all that razzmatazz"
+];
 
 $(document).ready(function(){
 
@@ -57,6 +68,8 @@ $(document).ready(function(){
 	$("#option_a, #option_b, #option_c, #option_d").on("click",function(){
 		if ( theRightAnswer !== "" ) {
 			if ( $(this).html() === theRightAnswer ) {
+				msg = rightTexts[Math.floor(Math.random()*rightTexts.length)];
+				$("#liveToastCorrect .toast-body").html( msg );
 				toastBootstrapCorrect.show();
 				quiz_score++;
 				updatePoints();
