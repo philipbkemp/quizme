@@ -3,6 +3,18 @@ quiz_score = 0;
 theRightAnswer = "";
 questionNumber = 0;
 
+wrongTexts = [
+	"Nope, the answer was %answer%",
+	"How dare you suggest that! It's obviously %answer%",
+	"If I could, I'd LOL - it was %answer%",
+	"Computer says no. Try %answer% next time",
+	"No yummy points for you! It was %answer% b-t-dubs",
+	"It was %answer% all along",
+	"Swing and miss. You should have gone for %answer%",
+	"Nope. %answer%.",
+	"%answer%!"
+];
+
 $(document).ready(function(){
 
 	$.ajax({
@@ -49,7 +61,9 @@ $(document).ready(function(){
 				quiz_score++;
 				updatePoints();
 			} else {
-				$("#right-answer").html( theRightAnswer );
+				msg = wrongTexts[Math.floor(Math.random()*wrongTexts.length)];
+				msg = msg.replace("%answer%","<strong>"+theRightAnswer+"</strong>");
+				$("#liveToastIncorrect .toast-body").html( msg );
 				toastBootstrapIncorrect.show();
 			}
 			reset();
